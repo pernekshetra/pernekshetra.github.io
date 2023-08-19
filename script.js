@@ -1,29 +1,34 @@
-// Wait for the document to load before running the script 
-(function ($) {
-  
-  // We use some Javascript and the URL #fragment to hide/show different parts of the page
-  // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Linking_to_an_element_on_the_same_page
-  $(window).on('load hashchange', function(){
-    
-    // First hide all content regions, then show the content-region specified in the URL hash 
-    // (or if no hash URL is found, default to first menu item)
-    $('.content-region').hide();
-    
-    // Remove any active classes on the main-menu
-    $('.main-menu a').removeClass('active');
-    var region = location.hash.toString() || $('.main-menu a:first').attr('href');
-    
-    // Now show the region specified in the URL hash
-    $(region).show();
-    
-    // Highlight the menu link associated with this region by adding the .active CSS class
-    $('.main-menu a[href="'+ region +'"]').addClass('active'); 
+const imageInput = document.getElementById('imageInput');
+const generateButton = document.getElementById('generateButton');
+const resultContainer = document.getElementById('resultContainer');
+const resultImage = document.getElementById('resultImage');
+const downloadButton = document.getElementById('downloadButton');
 
-    // Alternate method: Use AJAX to load the contents of an external file into a div based on URL fragment
-    // This will extract the region name from URL hash, and then load [region].html into the main #content div
-    // var region = location.hash.toString() || '#first';
-    // $('#content').load(region.slice(1) + '.html')
-    
-  });
-  
-})(jQuery);
+generateButton.addEventListener('click', generateProfilePic);
+
+function generateProfilePic() {
+    const overlayImage = new Image();
+    overlayImage.src = 'overlay.png';
+
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const userImage = new Image();
+        userImage.src = event.target.result;
+
+        userImage.onload = function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = overlayImage.width;
+            canvas.height = overlayImage.height;
+
+            const context = canvas.getContext('2d');
+            context.drawImage(userImage, 0, 0, overlayImage.width, overlayImage.height);
+            context.drawImage(overlayImage, 0, 0, overlayImage.width, overlayImage.height);
+
+            resultImage.src = canvas.toDataURL('image/png');
+            resultContainer.style.display = 'block';
+            downloadButton.href = canvas.toDataURL('image/png');
+        };
+    };
+
+    reader.readAsDataURL(imageInput.files[0]);
+}
