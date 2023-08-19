@@ -7,21 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>WhatsApp Profile Pic Generator</h1>
-    <div id="uploadContainer">
-        <input type="file" id="imageInput" accept="image/*">
-        <label>
-            <input type="radio" name="overlay" value="overlay1.png" checked> Overlay 1
-        </label>
-        <label>
-            <input type="radio" name="overlay" value="overlay2.png"> Overlay 2
-        </label>
-        <button id="generateButton">Generate</button>
-    </div>
-    <div id="resultContainer">
-        <img id="resultImage" alt="Generated Image">
-        <a id="downloadButton" download="profile_pic.png">Download</a>
-    </div>
+    <header>
+        <h1>WhatsApp Profile Pic Generator</h1>
+    </header>
+    <main>
+        <div id="uploadContainer">
+            <input type="file" id="imageInput" accept="image/*">
+            <div class="overlay-options">
+                <label class="overlay-option">
+                    <input type="radio" name="overlay" value="overlay1.png" checked>
+                    <img src="overlay1.png" alt="Overlay 1">
+                </label>
+                <label class="overlay-option">
+                    <input type="radio" name="overlay" value="overlay2.png">
+                    <img src="overlay2.png" alt="Overlay 2">
+                </label>
+            </div>
+            <button id="generateButton">Generate</button>
+        </div>
+        <div id="resultContainer">
+            <img id="resultImage" alt="Generated Image">
+            <a id="downloadButton" download="profile_pic.png">Download</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Campaign Name. All rights reserved.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
