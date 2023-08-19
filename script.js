@@ -22,6 +22,11 @@ function generateProfilePic() {
         return;
     }
 
+    if (!imageInput.files || imageInput.files.length === 0) {
+        alert('Please select your photo before generating profile photo.');
+        return;
+    }
+
     const overlayImage = new Image();
     overlayImage.src = selectedOverlay;
 

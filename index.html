@@ -12,20 +12,22 @@
     </header>
     <main>
         <div id="uploadContainer">
+            <p><b>Upload your photo</b></p>
             <input type="file" id="imageInput" accept="image/*">
+            <p>Select Frame</p>
             <div class="overlay-options">
                 <label class="overlay-option">
                     <input type="radio" name="overlay" value="overlay1.png" checked>
                     <img src="overlay1.png" alt="Overlay 1">
-                     <span>Kannada Frame</span>
+                     <span>Kannada</span>
                 </label>
                 <label class="overlay-option">
                     <input type="radio" name="overlay" value="overlay2.png">
                     <img src="overlay2.png" alt="Overlay 2">
-                    <span>Malayalam Frame</span>
+                    <span>Malayalam</span>
                 </label>
             </div>
-            <button id="generateButton">Generate Photo</button>
+            <button id="generateButton">Generate Profile Photo</button>
         </div>
         <div id="resultContainer">
             <img id="resultImage" alt="Generated Image">
@@ -33,7 +35,10 @@
         </div>
     </main>
     <footer>
-        <p>&copy; 2023 Nanna Kaliyata Mara. All rights reserved.</p>
+        <div>
+        <p>&copy; 2023 Shree Perne Muchilot Bhagavathi Kshetra.</p>
+        <p>All rights reserved.</p>
+        </div>
     </footer>
     <script src="script.js"></script>
 </body>
