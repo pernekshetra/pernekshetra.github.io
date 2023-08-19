@@ -9,8 +9,14 @@ h1 {
     margin-bottom: 20px;
 }
 
-#imageInput {
-    margin-bottom: 10px;
+#uploadContainer {
+    margin-bottom: 20px;
+}
+
+#uploadContainer input[type="file"],
+#uploadContainer label {
+    display: block;
+    margin: 10px auto;
 }
 
 #generateButton {

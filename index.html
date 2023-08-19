@@ -8,12 +8,16 @@
 </head>
 <body>
     <h1>WhatsApp Profile Pic Generator</h1>
-    <input type="file" id="imageInput" accept="image/*">
-    <select id="overlaySelect">
-    <option value="overlay1.png">Overlay 1</option>
-    <option value="overlay2.png">Overlay 2</option>
-</select>
-    <button id="generateButton">Generate</button>
+    <div id="uploadContainer">
+        <input type="file" id="imageInput" accept="image/*">
+        <label>
+            <input type="radio" name="overlay" value="overlay1.png" checked> Overlay 1
+        </label>
+        <label>
+            <input type="radio" name="overlay" value="overlay2.png"> Overlay 2
+        </label>
+        <button id="generateButton">Generate</button>
+    </div>
     <div id="resultContainer">
         <img id="resultImage" alt="Generated Image">
         <a id="downloadButton" download="profile_pic.png">Download</a>

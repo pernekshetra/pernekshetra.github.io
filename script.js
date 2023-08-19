@@ -7,11 +7,24 @@ const downloadButton = document.getElementById('downloadButton');
 generateButton.addEventListener('click', generateProfilePic);
 
 function generateProfilePic() {
-   const overlaySelect = document.getElementById('overlaySelect');
-    const selectedOverlay = overlaySelect.value;
+    const overlayRadioButtons = document.getElementsByName('overlay');
+    let selectedOverlay;
+
+    for (const radioButton of overlayRadioButtons) {
+        if (radioButton.checked) {
+            selectedOverlay = radioButton.value;
+            break;
+        }
+    }
+
+    if (!selectedOverlay) {
+        alert('Please select an overlay.');
+        return;
+    }
 
     const overlayImage = new Image();
     overlayImage.src = selectedOverlay;
+
     const reader = new FileReader();
     reader.onload = function(event) {
         const userImage = new Image();
