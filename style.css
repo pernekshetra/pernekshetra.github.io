@@ -66,8 +66,15 @@ main {
 
 #resultContainer {
     text-align: center;
-    margin-top: 60px;
-    display: none;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #CC0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 #resultImage {
