@@ -29,19 +29,14 @@ main {
     text-align: center; /* Center align content */
 }
 
-.custom-file-upload {
-    /* ... Existing styles ... */
-    display: block; /* Make the button a block element */
-    margin: 0 auto; /* Center align horizontally */
-}
+
 
 #uploadContainer h1 {
     font-size: 28px; /* Increase font size */
     margin-bottom: 20px; /* Add space at the bottom */
 }
-
-.overlay-options {
-    /* ... Existing styles ... */
+.overlay-option {
+    text-align: center;
 }
 
 .overlay-option img {
@@ -85,11 +80,14 @@ main {
 #downloadButton {
     display: block;
     margin: 0 auto;
-    background-color: #CC0000;
-    color: #fff;
-    padding: 5px 10px;
+    width: 120px; /* Set a fixed width */
+    background-color: #3498db;
+    color: white;
+    padding: 8px 0; /* Adjust padding for vertical centering */
+    text-align: center; /* Center text horizontally */
     text-decoration: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 footer {
     text-align: center;
