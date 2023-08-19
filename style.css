@@ -94,6 +94,25 @@ main {
     border-radius: 5px;
     cursor: pointer;
 }
+#shareButton {
+    display: block;
+    margin: 20px auto; /* Add margin for spacing */
+    width: 160px; /* Set a fixed width */
+    background-color: #25D366; /* WhatsApp green color */
+    color: white;
+    padding: 10px 0; /* Adjust padding for vertical centering */
+    text-align: center; /* Center text horizontally */
+    text-decoration: none;
+    border: none; /* Remove border */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+#shareButton:hover {
+    background-color: #128C7E; /* Darker shade on hover */
+}
+
 footer {
     text-align: center;
     background-color: #f2f2f2;

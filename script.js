@@ -3,8 +3,18 @@ const generateButton = document.getElementById('generateButton');
 const resultContainer = document.getElementById('resultContainer');
 const resultImage = document.getElementById('resultImage');
 const downloadButton = document.getElementById('downloadButton');
+const shareButton = document.getElementById('shareButton');
 
 generateButton.addEventListener('click', generateProfilePic);
+shareButton.addEventListener('click', shareOnWhatsApp);
+
+function shareOnWhatsApp() {
+    const generatedImageURL = resultImage.src;
+    const message = encodeURIComponent('Check out my new profile picture!');
+    const shareURL = `whatsapp://send?text=${message}%20${generatedImageURL}`;
+    
+    window.location.href = shareURL;
+}
 
 function generateProfilePic() {
     const overlayRadioButtons = document.getElementsByName('overlay');
