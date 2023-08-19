@@ -7,9 +7,11 @@ const downloadButton = document.getElementById('downloadButton');
 generateButton.addEventListener('click', generateProfilePic);
 
 function generateProfilePic() {
-    const overlayImage = new Image();
-    overlayImage.src = 'overlay.png';
+   const overlaySelect = document.getElementById('overlaySelect');
+    const selectedOverlay = overlaySelect.value;
 
+    const overlayImage = new Image();
+    overlayImage.src = selectedOverlay;
     const reader = new FileReader();
     reader.onload = function(event) {
         const userImage = new Image();
