@@ -55,7 +55,7 @@ main {
 #generateButton {
     display: block;
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 30px;
     padding: 10px 20px;
     background-color: #CC0000;
     color: #fff;
@@ -78,14 +78,13 @@ main {
 }
 
 #downloadButton {
-    display: block;
+  display: block;
     margin: 0 auto;
-    width: 120px; /* Set a fixed width */
-    background-color: #3498db;
-    color: white;
-    padding: 8px 0; /* Adjust padding for vertical centering */
-    text-align: center; /* Center text horizontally */
-    text-decoration: none;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #CC0000;
+    color: #fff;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
 }
