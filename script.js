@@ -1,20 +1,11 @@
+
 const imageInput = document.getElementById('imageInput');
 const generateButton = document.getElementById('generateButton');
 const resultContainer = document.getElementById('resultContainer');
 const resultImage = document.getElementById('resultImage');
 const downloadButton = document.getElementById('downloadButton');
-const shareButton = document.getElementById('shareButton');
 
 generateButton.addEventListener('click', generateProfilePic);
-shareButton.addEventListener('click', shareOnWhatsApp);
-
-function shareOnWhatsApp() {
-    const generatedImageURL = resultImage.src;
-    const message = encodeURIComponent('Check out my new profile picture!');
-    const shareURL = `whatsapp://send?text=${message}%20${generatedImageURL}`;
-    
-    window.location.href = shareURL;
-}
 
 function generateProfilePic() {
     const overlayRadioButtons = document.getElementsByName('overlay');
@@ -33,7 +24,7 @@ function generateProfilePic() {
     }
 
     if (!imageInput.files || imageInput.files.length === 0) {
-        alert('Please select your photo before generating profile photo.');
+        alert('Please select your photo before generating a profile photo.');
         return;
     }
 
@@ -51,7 +42,27 @@ function generateProfilePic() {
             canvas.height = overlayImage.height;
 
             const context = canvas.getContext('2d');
-            context.drawImage(userImage, 0, 0, overlayImage.width, overlayImage.height);
+            
+            // Calculate the aspect fit dimensions for userImage within overlayImage
+            var aspectRatio = userImage.width / userImage.height;
+            let userWidth, userHeight, userX, userY;
+
+            if (aspectRatio > overlayImage.width / overlayImage.height) {
+                userWidth = overlayImage.width;
+                userHeight = overlayImage.width / aspectRatio;
+                userX = 0;
+                userY = (overlayImage.height - userHeight) / 2;
+            } else {
+                userWidth = overlayImage.height * aspectRatio;
+                userHeight = overlayImage.height;
+                userX = (overlayImage.width - userWidth) / 2;
+                userY = 0;
+            }
+
+            // Then draw userImage with aspect-fit
+            context.drawImage(userImage, userX, userY, userWidth, userHeight);
+
+             // Draw overlayImage first
             context.drawImage(overlayImage, 0, 0, overlayImage.width, overlayImage.height);
 
             resultImage.src = canvas.toDataURL('image/png');
