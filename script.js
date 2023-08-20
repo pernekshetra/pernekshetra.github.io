@@ -47,7 +47,13 @@ function generateProfilePic() {
             var aspectRatio = userImage.width / userImage.height;
             let userWidth, userHeight, userX, userY;
 
-            if (aspectRatio > overlayImage.width / overlayImage.height) {
+            if ( aspectRatio > 0.95 && aspectRatio < 1.05 ) {
+                userWidth = overlayImage.width;
+                userHeight = overlayImage.height;
+                userX = 0;
+                userY = 0;
+
+            } else if (aspectRatio > overlayImage.width / overlayImage.height) {
                 userWidth = overlayImage.width;
                 userHeight = overlayImage.width / aspectRatio;
                 userX = 0;
