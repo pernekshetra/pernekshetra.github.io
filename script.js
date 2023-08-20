@@ -50,8 +50,24 @@ function generateProfilePic() {
             canvas.width = overlayImage.width;
             canvas.height = overlayImage.height;
 
+
+const overlayWidth = overlayImage.width;
+    const overlayHeight = overlayImage.height;
             const context = canvas.getContext('2d');
-            context.drawImage(userImage, 0, 0, overlayImage.width, overlayImage.height);
+
+const scaleFactor = Math.min(
+      overlayWidth / userImage.width,
+      overlayHeight / userImage.height
+    );
+
+    const userImageWidth = userImage.width * scaleFactor;
+    const userImageHeight = userImage.height * scaleFactor;
+
+    const x = (overlayWidth - userImageWidth) / 2;
+    const y = (overlayHeight - userImageHeight) / 2;
+
+    ctx.clearRect(0, 0, overlayWidth, overlayHeight);
+    ctx.drawImage(userImage, x, y, userImageWidth, userImageHeight);
             context.drawImage(overlayImage, 0, 0, overlayImage.width, overlayImage.height);
 
             resultImage.src = canvas.toDataURL('image/png');
