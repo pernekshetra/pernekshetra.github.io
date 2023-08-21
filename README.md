@@ -1,7 +1,7 @@
 Simple website to create a profile image using overlay image and user input image
 
 **Todo: Support cropping/rearranging
-Feel free to add features and raise PR **
+Feel free to add features and raise PR**
 
 Why this site was built: 
 Shree Perne Muchilot Bhagavathi Kshetra is hosting “Kaliyatam” in 2024. To make this event special, the temple asked its community members to plant a tree at each home. Around 3000 homes planted fruit bearing plant today. The idea behind this noble initiative was to thank the nature, seek her blessings and also to strengthen the idea of community. 
