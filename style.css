@@ -1,3 +1,4 @@
+/* Set default styling for the entire document */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,12 +7,14 @@ body {
     color: #333;
 }
 
+/* Styling for the header section */
 header {
     text-align: center;
     background-color: #CC0000;
     padding: 20px 0;
 }
 
+/* Styling for the main headings */
 h1 {
     margin: 0;
     color: #fff;
@@ -22,10 +25,12 @@ h2 {
     color: #fff;
 }
 
+/* Styling for the main content section */
 main {
     padding: 20px;
 }
 
+/* Styling for the container holding the upload content */
 #uploadContainer {
     background-color: #fff;
     padding: 20px;
@@ -34,12 +39,13 @@ main {
     text-align: center; /* Center align content */
 }
 
-
-
+/* Styling for the main heading inside the upload container */
 #uploadContainer h1 {
     font-size: 28px; /* Increase font size */
     margin-bottom: 20px; /* Add space at the bottom */
 }
+
+/* Styling for the overlay options */
 .overlay-option {
     text-align: center;
 }
@@ -57,6 +63,7 @@ main {
     border-color: #CC0000;
 }
 
+/* Styling for the generate button */
 #generateButton {
     display: block;
     margin: 0 auto;
@@ -69,6 +76,7 @@ main {
     cursor: pointer;
 }
 
+/* Styling for the result container */
 #resultContainer {
     text-align: center;
     display: none;
@@ -81,6 +89,7 @@ main {
     cursor: pointer;
 }
 
+/* Styling for the result image */
 #resultImage {
     max-width: 300px;
     margin-bottom: 10px;
@@ -88,8 +97,9 @@ main {
     border-radius: 5px;
 }
 
+/* Styling for the download button */
 #downloadButton {
-  display: block;
+    display: block;
     margin: 0 auto;
     margin-top: 30px;
     padding: 10px 20px;
@@ -99,6 +109,8 @@ main {
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* Styling for the share button */
 #shareButton {
     display: block;
     margin: 20px auto; /* Add margin for spacing */
@@ -118,6 +130,7 @@ main {
     background-color: #128C7E; /* Darker shade on hover */
 }
 
+/* Styling for the bottom image */
 #bottomImage {
     width: 100%; /* Make the image responsive */
     max-width: 100%; /* Set maximum width to window width */
@@ -126,13 +139,15 @@ main {
     display: block;
 }
 
+/* Styling for the footer section */
 footer {
     text-align: center;
     background-color: #f2f2f2;
     padding: 20px 0;
 }
 
+/* Styling for the paragraph text within the footer */
 footer p {
     margin: 0;
-    padding: 0 20px; /* Add padding on the sides 
+    padding: 0 20px; /* Add padding on the sides */
 }
