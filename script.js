@@ -29,19 +29,13 @@ generateButton.addEventListener('click', generateProfilePic);
         let panX = 0;
         let panY = 0;
 
-        // Variables for tracking mouse events
-        let isDragging = false;
-        let lastMouseX = 0;
-        let lastMouseY = 0;
-
-
    // Add event listeners for mouse and touch events
   zoomInButton.addEventListener('click', zoomIn);
   zoomOutButton.addEventListener('click', zoomOut);
   panLeftButton.addEventListener('click', panLeft);
   panRightButton.addEventListener('click', panRight);
-    panUpButton.addEventListener('click', panUpButton);
-  panDownButton.addEventListener('click', panDownButton);
+    panUpButton.addEventListener('click', panUP);
+  panDownButton.addEventListener('click', panDown);
 
 
         function zoomIn() {
@@ -64,12 +58,12 @@ generateButton.addEventListener('click', generateProfilePic);
     updateCanvas();
   }
 
-  function panUpButton() {
+  function panUP() {
     panY -= 10; // Adjust the pan increment as needed
     updateCanvas();
   }
 
-  function panDownButton() {
+  function panDown() {
     panY += 10; // Adjust the pan increment as needed
     updateCanvas();
   }
