@@ -172,6 +172,11 @@ function generateProfilePic() {
 
             // Display the result container
             profileCanvas.style.display = 'block';
+             // Set the generated image as the source of the displayed image
+            resultImage.src = canvas.toDataURL('image/png');
+
+            // Display the result container
+            resultContainer.style.display = 'block';
 
             // Set the download button's link to the generated image
             downloadButton.href = canvas.toDataURL('image/png');
