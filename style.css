@@ -76,6 +76,65 @@ main {
     cursor: pointer;
 }
 
+
+#panLeftButton {
+    display: inline;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#panRightButton {
+    display: inline;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#panUpButton {
+    display: inline;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#panDownButton {
+    display: inline;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#zoomInButton {
+    display: inline;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#zoomOutButton {
+    display: inline;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 /* Styling for the result container */
 #resultContainer {
     text-align: center;
