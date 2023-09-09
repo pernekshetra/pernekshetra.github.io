@@ -9,6 +9,14 @@ const resultContainer = document.getElementById('resultContainer'); // Container
 const resultImage = document.getElementById('resultImage');         // Displayed profile picture
 const downloadButton = document.getElementById('downloadButton');   // Button to download the generated image
 const profileCanvas = document.getElementById('profileCanvas'); 
+
+const zoomInButton = document.getElementById('zoomInButton'); 
+const zoomOutButton = document.getElementById('zoomOutButton'); 
+const panLeftButton = document.getElementById('panLeftButton'); 
+const panRightButton = document.getElementById('panRightButton'); 
+const panUpButton = document.getElementById('panUpButton'); 
+const panDownButton = document.getElementById('panDownButton');
+
 // Add event listener to the "Generate" button
 generateButton.addEventListener('click', generateProfilePic);
 
@@ -28,60 +36,43 @@ generateButton.addEventListener('click', generateProfilePic);
 
 
    // Add event listeners for mouse and touch events
-        profileCanvas.addEventListener('mousedown', handleMouseDown);
-        profileCanvas.addEventListener('mousemove', handleMouseMove);
-        profileCanvas.addEventListener('mouseup', handleMouseUp);
-        profileCanvas.addEventListener('mouseleave', handleMouseUp);
-        profileCanvas.addEventListener('wheel', handleMouseWheel);
+  zoomInButton.addEventListener('click', zoomIn);
+  zoomOutButton.addEventListener('click', zoomOut);
+  panLeftButton.addEventListener('click', panLeft);
+  panRightButton.addEventListener('click', panRight);
+    panUpButton.addEventListener('click', panUpButton);
+  panDownButton.addEventListener('click', panDownButton);
 
 
-           // Function to handle mouse down event
-        function handleMouseDown(event) {
-            isDragging = true;
-            lastMouseX = event.clientX;
-            lastMouseY = event.clientY;
-        }
+        function zoomIn() {
+    zoomLevel *= 1.1;
+    updateCanvas();
+  }
 
-        // Function to handle mouse move event
-        function handleMouseMove(event) {
-            if (!isDragging) return;
+  function zoomOut() {
+    zoomLevel /= 1.1;
+    updateCanvas();
+  }
 
-            const deltaX = event.clientX - lastMouseX;
-            const deltaY = event.clientY - lastMouseY;
+  function panLeft() {
+    panX -= 10; // Adjust the pan increment as needed
+    updateCanvas();
+  }
 
-            // Update pan based on mouse movement
-            panX += deltaX;
-            panY += deltaY;
+  function panRight() {
+    panX += 10; // Adjust the pan increment as needed
+    updateCanvas();
+  }
 
-            lastMouseX = event.clientX;
-            lastMouseY = event.clientY;
+  function panUpButton() {
+    panY -= 10; // Adjust the pan increment as needed
+    updateCanvas();
+  }
 
-            // Redraw the canvas with the updated pan
-            updateCanvas();
-        }
-
-        // Function to handle mouse up event
-        function handleMouseUp() {
-            isDragging = false;
-        }
-
-        // Function to handle mouse wheel event (for zoom)
-        function handleMouseWheel(event) {
-            const zoomFactor = event.deltaY > 0 ? 1.1 : 0.9;
-
-            // Update zoom level based on mouse wheel direction
-            zoomLevel *= zoomFactor;
-
-            // Ensure zoom is within desired bounds (adjust as needed)
-            if (zoomLevel < 0.1) zoomLevel = 0.1;
-            if (zoomLevel > 5) zoomLevel = 5;
-
-            // Redraw the canvas with the updated zoom
-            updateCanvas();
-
-            // Prevent the default scroll behavior
-            event.preventDefault();
-        }
+  function panDownButton() {
+    panY += 10; // Adjust the pan increment as needed
+    updateCanvas();
+  }
 
           // Function to update the canvas with current zoom and pan settings
         function updateCanvas() {
@@ -128,7 +119,7 @@ function generateProfilePic() {
 
          // Display the result container
             profileCanvas.style.display = 'block';
-            
+
         // Create an Image object for the user's image
         const userImage = new Image();
         userImage.src = event.target.result;
