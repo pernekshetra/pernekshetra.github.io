@@ -8,9 +8,87 @@ const generateButton = document.getElementById('generateButton');   // Button to
 const resultContainer = document.getElementById('resultContainer'); // Container for displaying the result
 const resultImage = document.getElementById('resultImage');         // Displayed profile picture
 const downloadButton = document.getElementById('downloadButton');   // Button to download the generated image
-
+const profileCanvas = document.getElementById('profileCanvas'); 
 // Add event listener to the "Generate" button
 generateButton.addEventListener('click', generateProfilePic);
+
+  // Get the 2D context of the canvas
+        const context = profileCanvas.getContext('2d');
+
+
+// Variables for tracking zoom and pan
+        let zoomLevel = 1;
+        let panX = 0;
+        let panY = 0;
+
+        // Variables for tracking mouse events
+        let isDragging = false;
+        let lastMouseX = 0;
+        let lastMouseY = 0;
+
+
+   // Add event listeners for mouse and touch events
+        profileCanvas.addEventListener('mousedown', handleMouseDown);
+        profileCanvas.addEventListener('mousemove', handleMouseMove);
+        profileCanvas.addEventListener('mouseup', handleMouseUp);
+        profileCanvas.addEventListener('mouseleave', handleMouseUp);
+        profileCanvas.addEventListener('wheel', handleMouseWheel);
+
+
+           // Function to handle mouse down event
+        function handleMouseDown(event) {
+            isDragging = true;
+            lastMouseX = event.clientX;
+            lastMouseY = event.clientY;
+        }
+
+        // Function to handle mouse move event
+        function handleMouseMove(event) {
+            if (!isDragging) return;
+
+            const deltaX = event.clientX - lastMouseX;
+            const deltaY = event.clientY - lastMouseY;
+
+            // Update pan based on mouse movement
+            panX += deltaX;
+            panY += deltaY;
+
+            lastMouseX = event.clientX;
+            lastMouseY = event.clientY;
+
+            // Redraw the canvas with the updated pan
+            updateCanvas();
+        }
+
+        // Function to handle mouse up event
+        function handleMouseUp() {
+            isDragging = false;
+        }
+
+        // Function to handle mouse wheel event (for zoom)
+        function handleMouseWheel(event) {
+            const zoomFactor = event.deltaY > 0 ? 1.1 : 0.9;
+
+            // Update zoom level based on mouse wheel direction
+            zoomLevel *= zoomFactor;
+
+            // Ensure zoom is within desired bounds (adjust as needed)
+            if (zoomLevel < 0.1) zoomLevel = 0.1;
+            if (zoomLevel > 5) zoomLevel = 5;
+
+            // Redraw the canvas with the updated zoom
+            updateCanvas();
+
+            // Prevent the default scroll behavior
+            event.preventDefault();
+        }
+
+          // Function to update the canvas with current zoom and pan settings
+        function updateCanvas() {
+            if (imageInput.files && imageInput.files.length > 0) {
+                generateProfilePic();
+            }
+        }
 
 /**
  * Generates a profile picture based on user inputs.
@@ -54,12 +132,10 @@ function generateProfilePic() {
         // After the user's image loads
         userImage.onload = function() {
             // Create a canvas element
-            const canvas = document.createElement('canvas');
-            canvas.width = overlayImage.width;
-            canvas.height = overlayImage.height;
+       
+            profileCanvas.width = overlayImage.width;
+            profileCanvas.height = overlayImage.height;
 
-            // Get the 2D context of the canvas
-            const context = canvas.getContext('2d');
             
             // Calculate aspect fit dimensions for userImage within overlayImage
             var aspectRatio = userImage.width / userImage.height;
@@ -82,17 +158,20 @@ function generateProfilePic() {
                 userY = 0;
             }
 
-            // Draw userImage with aspect-fit
-            context.drawImage(userImage, userX, userY, userWidth, userHeight);
+              // Draw userImage with aspect-fit
+                    context.drawImage(
+                        userImage,
+                        userX + panX,
+                        userY + panY,
+                        userWidth * zoomLevel,
+                        userHeight * zoomLevel
+                    );
 
             // Draw overlayImage on top
             context.drawImage(overlayImage, 0, 0, overlayImage.width, overlayImage.height);
 
-            // Set the generated image as the source of the displayed image
-            resultImage.src = canvas.toDataURL('image/png');
-
             // Display the result container
-            resultContainer.style.display = 'block';
+            profileCanvas.style.display = 'block';
 
             // Set the download button's link to the generated image
             downloadButton.href = canvas.toDataURL('image/png');
