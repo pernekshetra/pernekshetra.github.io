@@ -111,8 +111,6 @@ function generateProfilePic() {
     const reader = new FileReader();
     reader.onload = function(event) {
 
-         // Display the result container
-            profileCanvas.style.display = 'block';
 
         // Create an Image object for the user's image
         const userImage = new Image();
