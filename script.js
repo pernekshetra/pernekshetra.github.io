@@ -40,17 +40,17 @@ generateButton.addEventListener('click', generateProfilePic);
 
         function zoomIn() {
     zoomLevel *= 1.05;
-    if zoomLevel > 2 {
-        zoomLevel = 2
-    }
+    if (zoomLevel > 2) {
+    zoomLevel = 2;
+}
     updateCanvas();
   }
 
   function zoomOut() {
     zoomLevel /= 1.05;
-      if zoomLevel < 0.5 {
-        zoomLevel = 0.5
-    }
+   if (zoomLevel < 0.5) {
+    zoomLevel = 0.5;
+}
     updateCanvas();
   }
 
