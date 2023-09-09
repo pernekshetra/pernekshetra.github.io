@@ -125,6 +125,10 @@ function generateProfilePic() {
     // Create a FileReader object to read the user's image file
     const reader = new FileReader();
     reader.onload = function(event) {
+
+         // Display the result container
+            profileCanvas.style.display = 'block';
+            
         // Create an Image object for the user's image
         const userImage = new Image();
         userImage.src = event.target.result;
@@ -170,16 +174,15 @@ function generateProfilePic() {
             // Draw overlayImage on top
             context.drawImage(overlayImage, 0, 0, overlayImage.width, overlayImage.height);
 
-            // Display the result container
-            profileCanvas.style.display = 'block';
+           
              // Set the generated image as the source of the displayed image
-            resultImage.src = canvas.toDataURL('image/png');
+            resultImage.src = profileCanvas.toDataURL('image/png');
 
             // Display the result container
             resultContainer.style.display = 'block';
 
             // Set the download button's link to the generated image
-            downloadButton.href = canvas.toDataURL('image/png');
+            downloadButton.href = profileCanvas.toDataURL('image/png');
         };
     };
 
