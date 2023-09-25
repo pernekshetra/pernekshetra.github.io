@@ -25,7 +25,7 @@ generateButton.addEventListener('click', generateProfilePic);
 
 
 // Variables for tracking zoom and pan
-        let zoomLevel = 1.05;
+        let zoomLevel = 1;
         let panX = 0;
         let panY = 0;
 
@@ -134,13 +134,11 @@ function generateProfilePic() {
             var aspectRatio = userImage.width / userImage.height;
             let userWidth, userHeight, userX, userY;
 
-            if (aspectRatio > 0.90 && aspectRatio < 1.10) {
+            if (aspectRatio > 0.95 && aspectRatio < 1.05) {
                 userWidth = overlayImage.width;
                 userHeight = overlayImage.height;
                 userX = 0;
                 userY = 0;
-
-
             } else if (aspectRatio > overlayImage.width / overlayImage.height) {
                 userWidth = overlayImage.width;
                 userHeight = overlayImage.width / aspectRatio;

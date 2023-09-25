@@ -28,8 +28,65 @@
     </script>
 </head>
 <body>
-
+    <!-- Header section -->
+    <header>
+        <h1>Nanna Mara</h1>
+        <h2>Profile Pic Generator</h2>
+    </header>
     
+    <!-- Main content section -->
+    <main>
+        <!-- Upload and frame selection container -->
+        <div id="uploadContainer">
+            <p><b>Upload your photo</b></p>
+            <p><b>Please upload a square image for better results</b></p>
+            <p>ಚೌಕಾಕೃತಿಯ ಫೋಟೋ ಅಪ್ಲೋಡ್ ಮಾಡಿ </p>
+            <input type="file" id="imageInput" accept="image/*">
+            <p><b>Choose a Frame</b></p>
+            <div class="overlay-options">
+                <label class="overlay-option">
+                    <input type="radio" name="overlay" value="overlay1.png" checked>
+                    <img src="overlay1.png" alt="Overlay 1">
+                </label>
+                <label class="overlay-option">
+                    <input type="radio" name="overlay" value="overlay2.png">
+                    <img src="overlay2.png" alt="Overlay 2">
+                </label>
+            </div>
+            <p>This is a simple tool built to help you. <b>Privacy Info</b> - All image processing is conducted locally, directly within your web browser. We want to make it clear that we do not read or upload your images. Basic analytics to track the number of users and events are enabled.</p>
+            <button id="generateButton">Generate Profile Photo</button>
+        </div>
+
+        <!-- Result Container -->
+        <div id="resultContainer">
+ <img id="resultImage" alt="Generated Image">
+            <div>
+
+<button id="panLeftButton">Move Left</button>
+<button id="panRightButton">Move Right</button>
+<button id="panUpButton">Move Up</button>
+<button id="panDownButton">Move Down</button>
+</div>
+<div><button id="zoomInButton">Zoom In</button>
+<button id="zoomOutButton">Zoom Out</button></div>
+<p></p>
+             
+           <canvas id="profileCanvas" style="display: none;"></canvas>
+            <a id="downloadButton" download="profile_pic.png">Download your photo</a>
+        </div>
+    </main>
+
+    <!-- Poster images -->
+    <img id="bottomImage" src="cover2.jpg" alt="Cover Poster">
+    <img id="bottomImage" src="cover.jpg" alt="Cover Poster">
+
+    <!-- Footer section -->
+    <footer>
+        <div>
+            <p>&copy; 2023 Shree Perne Muchilot Bhagavathi Kshetra.</p>
+            <p>All rights reserved.</p>
+        </div>
+    </footer>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
