@@ -128,21 +128,19 @@ function generateProfilePic() {
             var aspectRatio = userImage.width / userImage.height;
             let userWidth, userHeight, userX, userY;
 
-            if (aspectRatio > 0.95 && aspectRatio < 1.05) { // Square image
-                userWidth = userHeight = Math.min(overlayImage.width, overlayImage.height);
-                userX = (overlayImage.width - userWidth) / 2;
-                userY = (overlayImage.height - userHeight) / 2;
-            } else if (aspectRatio > overlayImage.width / overlayImage.height) { // Horizontal image
-                userWidth = overlayImage.width;
-                userHeight = overlayImage.width / aspectRatio;
-                userX = 0;
-                userY = (overlayImage.height - userHeight) / 2;
-            } else { // Vertical image
-                userWidth = overlayImage.height * aspectRatio;
-                userHeight = overlayImage.height;
-                userX = (overlayImage.width - userWidth) / 2;
-                userY = 0;
+            // Ensure the user image covers the circle in the overlay
+            let circleDiameter = Math.min(overlayImage.width, overlayImage.height); // Assuming circle diameter is the smaller dimension of the overlay
+            if (aspectRatio >= 1) { // Wide or square image
+                userHeight = circleDiameter;
+                userWidth = userHeight * aspectRatio;
+            } else { // Tall image
+                userWidth = circleDiameter;
+                userHeight = userWidth / aspectRatio;
             }
+
+            // Centering the image within the canvas
+            userX = (overlayImage.width - userWidth) / 2;
+            userY = (overlayImage.height - userHeight) / 2;
 
             context.clearRect(0, 0, profileCanvas.width, profileCanvas.height);
             context.drawImage(
