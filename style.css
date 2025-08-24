@@ -25,6 +25,7 @@ h2 {
 
 h3 {
   margin: 0;
+  text-align: center;
 }
 
 p {
@@ -67,6 +68,10 @@ small {
 
 .overlay-options {
   margin-top: 12px;
+  display: flex;
+  flex-direction : column;
+  justify-content: center;
+  align-items: center;
 }
 
 .overlay-option {
