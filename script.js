@@ -160,3 +160,30 @@ function generateProfilePic() {
 
     reader.readAsDataURL(imageInput.files[0]);
 }
+
+// Drag and drop support for file upload
+const input = document.getElementById('imageInput');
+const card  = document.querySelector('.upload-card');
+
+card.tabIndex = 0;
+card.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    input.click();
+  }
+});
+
+['dragenter','dragover'].forEach(evt =>
+  card.addEventListener(evt, e => { e.preventDefault(); card.style.background = '#fff0f0'; })
+);
+;['dragleave','drop'].forEach(evt =>
+  card.addEventListener(evt, e => { e.preventDefault(); card.style.background = '#fff'; })
+);
+
+card.addEventListener('drop', (e) => {
+  const files = e.dataTransfer.files;
+  if (files && files.length) {
+    input.files = files;           // programmatically assign files
+    input.dispatchEvent(new Event('change', { bubbles: true })); // trigger your handler
+  }
+});

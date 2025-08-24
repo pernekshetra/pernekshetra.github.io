@@ -1,212 +1,293 @@
-/* Set default styling for the entire document */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-    color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  background: #FD1D1D;
+  background: linear-gradient(180deg, #CC0000 50%, rgba(252, 176, 69, 1) 100%);
 }
 
-/* Styling for the header section */
 header {
-    text-align: center;
-    background-color: #CC0000;
-    padding: 20px 0;
+  text-align: center;
+  background-color: #CC0000;
+  padding: 20px 0;
 }
 
-/* Styling for the main headings */
 h1 {
-    margin: 0;
-    color: #fff;
+  margin: 0;
+  color: #fff;
 }
 
 h2 {
-    margin: 0;
-    color: #fff;
+  margin: 0;
+  color: #fff;
 }
 
-/* Styling for the main content section */
+h3 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
 main {
-    padding: 20px;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: 1fr min(80ch, calc(100% - 16px)) 1fr;
+  grid-column-gap: 8px;
+  place-items: center;
 }
 
-/* Styling for the container holding the upload content */
+main > * {
+  grid-column: 2;
+}
+
 #uploadContainer {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center align content */
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+
 }
 
-/* Styling for the main heading inside the upload container */
 #uploadContainer h1 {
-    font-size: 28px; /* Increase font size */
-    margin-bottom: 20px; /* Add space at the bottom */
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-/* Styling for the overlay options */
+small {
+  margin-top: 30px;
+}
+
+.overlay-options {
+  margin-top: 12px;
+}
+
 .overlay-option {
-    text-align: center;
+  text-align: center;
 }
 
 .overlay-option img {
-    width: 100px;
-    height: 100px;
-    border: 2px solid transparent;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
+  width: 200px;
+  height: 200px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
 }
 
 .overlay-option img:hover {
-    border-color: #CC0000;
+  border-color: #CC0000;
 }
 
-/* Styling for the generate button */
 #generateButton {
-    display: block;
-    margin: 0 auto;
-    margin-top: 30px;
-    padding: 10px 20px;
-    background-color: #CC0000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  margin-top: 30px;
+  display: block;
+  padding: 12px 20px;
+  background-color: #CC0000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
 }
-
 
 #panLeftButton {
-    display: inline;
-    margin: 0 auto;
-    margin-top: 30px;
-    padding: 10px 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    cursor: pointer;
+  display: inline;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #panRightButton {
-    display: inline;
-    margin: 0 auto;
-    margin-top: 30px;
-    padding: 10px 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    cursor: pointer;
+  display: inline;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #panUpButton {
-    display: inline;
-    margin: 0 auto;
-    margin-top: 30px;
-    padding: 10px 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    cursor: pointer;
+  display: inline;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #panDownButton {
-    display: inline;
-    margin: 0 auto;
-    margin-top: 30px;
-    padding: 10px 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    cursor: pointer;
+  display: inline;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
 }
 #zoomInButton {
-    display: inline;
-    margin: 0 auto;
-    margin-top: 10px;
-    padding: 10px 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    cursor: pointer;
+  display: inline;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
 }
 #zoomOutButton {
-    display: inline;
-    margin: 0 auto;
-    margin-top: 10px;
-    padding: 10px 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    cursor: pointer;
+  display: inline;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Styling for the result container */
 #resultContainer {
-    text-align: center;
-    display: none;
-    margin: 0 auto;
-    margin-top: 30px;
-    padding: 10px 20px;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  text-align: center;
+  display: none;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Styling for the result image */
 #resultImage {
-    max-width: 300px;
-    margin-bottom: 10px;
-    border: 2px solid #CC0000;
-    border-radius: 5px;
+  max-width: 300px;
+  margin-bottom: 10px;
+  border: 2px double black;
+  border-radius: 5px;
 }
 
-/* Styling for the download button */
 #downloadButton {
-    display: block;
-    margin: 0 auto;
-    margin-top: 30px;
-    padding: 10px 20px;
-    background-color: #CC0000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #CC0000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Styling for the share button */
 #shareButton {
-    display: block;
-    margin: 20px auto; /* Add margin for spacing */
-    width: 160px; /* Set a fixed width */
-    background-color: #25D366; /* WhatsApp green color */
-    color: white;
-    padding: 10px 0; /* Adjust padding for vertical centering */
-    text-align: center; /* Center text horizontally */
-    text-decoration: none;
-    border: none; /* Remove border */
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Add transition effect */
+  display: block;
+  margin: 20px auto;
+  width: 160px;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 #shareButton:hover {
-    background-color: #128C7E; /* Darker shade on hover */
+  background-color: #128C7E;
 }
 
-/* Styling for the bottom image */
 #bottomImage {
-    width: 100%; /* Make the image responsive */
-    max-width: 100%; /* Set maximum width to window width */
-    height: auto; /* Maintain aspect ratio */
-    margin: 20px auto; /* Add margin for spacing */
-    display: block;
+  width: calc(100% - 40px);
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  display: block;
 }
 
-/* Styling for the footer section */
 footer {
-    text-align: center;
-    background-color: #f2f2f2;
-    padding: 20px 0;
+  text-align: center;
+  background-color: #CC0000;
+  padding: 20px 0;
 }
 
-/* Styling for the paragraph text within the footer */
 footer p {
-    margin: 0;
-    padding: 0 20px; /* Add padding on the sides */
+  margin: 0;
+  padding: 0 20px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+.upload-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.upload-card {
+  --accent: #cc0000;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 160px;            /* tweak as needed */
+  border: 3px dashed var(--accent);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--accent);
+  cursor: pointer;
+  user-select: none;
+  padding: 16px;
+  transition: background .2s, box-shadow .2s, transform .05s ease-in-out;
+  outline: none;
+  margin-top: 12px;
+}
+
+.upload-card:hover {
+  background: #fff6f6;
+}
+
+.upload-card:active {
+  transform: scale(0.98);
+}
+
+.upload-card:focus-within {
+  box-shadow: 0 0 0 4px #cc000033;
+}
+
+/* Icon & text */
+.upload-icon {
+  width: 56px;
+  height: 56px;
+  fill: currentColor;      /* uses .upload-card color */
+  margin-top: 16px;
+}
+
+.upload-text {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.mt-5 {
+  margin-top: 20px;
 }
