@@ -27,13 +27,22 @@
     <h2>Profile Pic Generator</h2>
   </header>
   <main>
-    <p><b>Notice:</b> The Kaliyatam is scheduled to take place from March 1st to March 7th, 2025.</p>
     <div id="uploadContainer">
-      <p><b>Upload your photo</b></p>
-      <p><b>Please upload a square image for better results</b></p>
-      <p>ಚೌಕಾಕೃತಿಯ ಫೋಟೋ ಅಪ್ಲೋಡ್ ಮಾಡಿ </p>
-      <input type="file" id="imageInput" accept="image/*">
-      <p><b>Choose a Frame</b></p>
+      <h3><b>Please upload a square image for better results</b></h3>
+      <h3>ಚೌಕಾಕೃತಿಯ ಫೋಟೋ ಅಪ್ಲೋಡ್ ಮಾಡಿ </h3>
+
+      <div class="upload-wrapper">
+        <input type="file" id="imageInput" accept="image/*" class="sr-only">
+        <label for="imageInput" class="upload-card" role="button" aria-label="Upload image">
+          <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 15.5a2.5 2.5 0 0 1 2.5-2.5H9v2h6v-2h2.5A2.5 2.5 0 0 1 20 15.5V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2.5z"/>
+            <path stroke="#CC0000" d="M12 14V5.83l2.59 2.58L16 7l-4-4-4 4 1.41 1.41L12 5.83V14z"/>
+          </svg>
+          <span class="upload-text">Upload</span>
+        </label>
+      </div>
+
+      <h3 class="mt-5"><b>Choose a Frame</b></h3>
       <div class="overlay-options">
         <label class="overlay-option">
           <input type="radio" name="overlay" value="overlay1.png" checked>
@@ -44,10 +53,10 @@
           <img src="overlay2.png" alt="Overlay 2">
         </label>
       </div>
-      <p>This is a simple tool built to help you. <b>Privacy Info</b> - All image processing is conducted locally,
-        directly within your web browser. We want to make it clear that we do not read or upload your images. Basic
-        analytics to track the number of users and events are enabled.</p>
       <button id="generateButton">Generate Profile Photo</button>
+      <small>Disclaimer: This is a simple tool built to help you. <b>Privacy Info</b> - All image processing is conducted locally,
+        directly within your web browser. We want to make it clear that we do not read or upload your images. Basic
+        analytics to track the number of users and events are enabled.</small>
     </div>
     <div id="resultContainer">
       <img id="resultImage" alt="Generated Image">
