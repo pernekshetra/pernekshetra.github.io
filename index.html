@@ -1,95 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perne Kaliyata</title>
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Metadata for SEO and sharing -->
-    <meta name="keywords" content="Perne Kaliyata">
-    <meta name="description" content="PerneKaliyata">
-    <meta property="og:image" content="https://pernekaliyata.in/Resource/Header/PerneMuchilotKaliyata.jpg">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="1024">
-
-    <!-- Favicon setup -->
-    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV7VF0MS20"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-NV7VF0MS20');
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perne Kaliyata</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="keywords" content="Perne Kaliyata">
+  <meta name="description" content="PerneKaliyata">
+  <meta property="og:image" content="https://pernekaliyata.in/Resource/Header/PerneMuchilotKaliyata.jpg">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV7VF0MS20"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NV7VF0MS20');
+  </script>
 </head>
 <body>
-    <!-- Header section -->
-    <header>
-        <h1>Nanna Mara</h1>
-        <h2>Profile Pic Generator</h2>
-    </header>
-    
-    <!-- Main content section -->
-    <main>
-            <p><b>Notice:</b> The Kaliyatam  is scheduled to take place from March 1st to March 7th, 2025.</p>
-        <!-- Upload and frame selection container -->
-        <div id="uploadContainer">
-            <p><b>Upload your photo</b></p>
-            <p><b>Please upload a square image for better results</b></p>
-            <p>ಚೌಕಾಕೃತಿಯ ಫೋಟೋ ಅಪ್ಲೋಡ್ ಮಾಡಿ </p>
-            <input type="file" id="imageInput" accept="image/*">
-            <p><b>Choose a Frame</b></p>
-            <div class="overlay-options">
-                <label class="overlay-option">
-                    <input type="radio" name="overlay" value="overlay1.png" checked>
-                    <img src="overlay1.png" alt="Overlay 1">
-                </label>
-                <label class="overlay-option">
-                    <input type="radio" name="overlay" value="overlay2.png">
-                    <img src="overlay2.png" alt="Overlay 2">
-                </label>
-            </div>
-            <p>This is a simple tool built to help you. <b>Privacy Info</b> - All image processing is conducted locally, directly within your web browser. We want to make it clear that we do not read or upload your images. Basic analytics to track the number of users and events are enabled.</p>
-            <button id="generateButton">Generate Profile Photo</button>
-        </div>
-
-        <!-- Result Container -->
-        <div id="resultContainer">
- <img id="resultImage" alt="Generated Image">
-            <div>
-
-<button id="panLeftButton">Move Left</button>
-<button id="panRightButton">Move Right</button>
-<button id="panUpButton">Move Up</button>
-<button id="panDownButton">Move Down</button>
-</div>
-<div><button id="zoomInButton">Zoom In</button>
-<button id="zoomOutButton">Zoom Out</button></div>
-<p></p>
-             
-           <canvas id="profileCanvas" style="display: none;"></canvas>
-            <a id="downloadButton" download="profile_pic.png">Download your photo</a>
-        </div>
-    </main>
-
-    <!-- Poster images -->
-    <img id="bottomImage" src="cover2.jpg" alt="Cover Poster">
-    <img id="bottomImage" src="cover.jpg" alt="Cover Poster">
-
-    <!-- Footer section -->
-    <footer>
-        <div>
-            <p>&copy; 2023 Shree Perne Muchilot Bhagavathi Kshetra.</p>
-            <p>All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+  <header>
+    <h1>Nanna Mara</h1>
+    <h2>Profile Pic Generator</h2>
+  </header>
+  <main>
+    <p><b>Notice:</b> The Kaliyatam is scheduled to take place from March 1st to March 7th, 2025.</p>
+    <div id="uploadContainer">
+      <p><b>Upload your photo</b></p>
+      <p><b>Please upload a square image for better results</b></p>
+      <p>ಚೌಕಾಕೃತಿಯ ಫೋಟೋ ಅಪ್ಲೋಡ್ ಮಾಡಿ </p>
+      <input type="file" id="imageInput" accept="image/*">
+      <p><b>Choose a Frame</b></p>
+      <div class="overlay-options">
+        <label class="overlay-option">
+          <input type="radio" name="overlay" value="overlay1.png" checked>
+          <img src="overlay1.png" alt="Overlay 1">
+        </label>
+        <label class="overlay-option">
+          <input type="radio" name="overlay" value="overlay2.png">
+          <img src="overlay2.png" alt="Overlay 2">
+        </label>
+      </div>
+      <p>This is a simple tool built to help you. <b>Privacy Info</b> - All image processing is conducted locally,
+        directly within your web browser. We want to make it clear that we do not read or upload your images. Basic
+        analytics to track the number of users and events are enabled.</p>
+      <button id="generateButton">Generate Profile Photo</button>
+    </div>
+    <div id="resultContainer">
+      <img id="resultImage" alt="Generated Image">
+      <div>
+        <button id="panLeftButton">Move Left</button>
+        <button id="panRightButton">Move Right</button>
+        <button id="panUpButton">Move Up</button>
+        <button id="panDownButton">Move Down</button>
+      </div>
+      <div><button id="zoomInButton">Zoom In</button>
+        <button id="zoomOutButton">Zoom Out</button>
+      </div>
+      <p></p>
+      <canvas id="profileCanvas" style="display: none;"></canvas>
+      <a id="downloadButton" download="profile_pic.png">Download your photo</a>
+    </div>
+  </main>
+  <img id="bottomImage" src="cover2.jpg" alt="Cover Poster">
+  <img id="bottomImage" src="cover.jpg" alt="Cover Poster">
+  <footer>
+    <div>
+      <p>&copy; 2023 Shree Perne Muchilot Bhagavathi Kshetra.</p>
+      <p>All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
